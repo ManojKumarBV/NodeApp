@@ -9,7 +9,7 @@ set -x
 npm run build
 set +x
 
-echo -e ">>>>>>>>>>>>>>>>>> ${BLUE_FG}PREPARING BUILD >>>>>>>>>>>>>>>>>>>"
+echo ">>>>>>>>>>>>>>>>>> ${BLUE_FG}PREPARING BUILD >>>>>>>>>>>>>>>>>>>"
 
 echo 'The following "npm" command runs your Node.js/React application in'
 echo 'development mode and makes the application available for web browsing.'
