@@ -1,4 +1,4 @@
-node("Ubuntu") {
+Pipeline {
     agent {
         docker {
             image 'node:lts-buster-slim'
@@ -8,7 +8,7 @@ node("Ubuntu") {
     environment {
         CI = 'true'
     }
-    stages {
+    node("Ubuntu") {
         stage('Build') {
             steps {
                 sh 'npm install'
