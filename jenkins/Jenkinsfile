@@ -1,4 +1,4 @@
-pipeline {
+node("Ubuntu") {
     agent {
         docker {
             image 'node:lts-buster-slim'
