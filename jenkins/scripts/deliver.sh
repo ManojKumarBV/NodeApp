@@ -22,8 +22,8 @@ echo 'the file ".pidfile".'
 set -x
 
 # Define the IP address and port
-HOST=192.168.x.x   # Replace with your desired IP address
-PORT=4000
+HOST=172.30.10.158   # Replace with your desired IP address
+PORT=4001
 
 # Run the React app with specified HOST and PORT in the background
 HOST=$HOST PORT=$PORT npm start &
