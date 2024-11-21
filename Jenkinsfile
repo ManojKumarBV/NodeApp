@@ -4,29 +4,19 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                script {
-                    sh 'npm install'
-                }
+                sh 'npm install'
             }
         }
-        stage('Build React App') {
+        stage('Test') {
             steps {
-                script {
-                    sh 'npm run build'
-                }
-            }
-        }
-        stage('Run React App') {
-            steps {
-                script {
-                    sh 'npm start --host 0.0.0.0 --port 4001'
-                }
+                sh './jenkins/scripts/test.sh'
             }
         }
         stage('Deliver') {
             steps {
+                sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the website? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }

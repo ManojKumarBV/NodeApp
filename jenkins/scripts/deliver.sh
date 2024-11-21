@@ -9,7 +9,7 @@ set -x
 npm run build
 set +x
 
-echo ">>>>>>>>>>>>>>>>>> ${BLUE_FG}PREPARING BUILD >>>>>>>>>>>>>>>>>>>"
+echo -e ">>>>>>>>>>>>>>>>>> ${BLUE_FG}PREPARING BUILD >>>>>>>>>>>>>>>>>>>"
 
 echo 'The following "npm" command runs your Node.js/React application in'
 echo 'development mode and makes the application available for web browsing.'
@@ -20,20 +20,9 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-
-# Define the IP address and port
-HOST="172.30.10.158" # Replace with your desired IP address
-PORT=4001
-
-# Run the React app with specified HOST and PORT in the background
-HOST=$HOST PORT=$PORT npm start &
-
-# Wait for 1 second to ensure the app starts
+npm start --host 0.0.0.0 --port 4001 &
 sleep 1
-
-# Save the process ID of the background job to a .pidfile
 echo $! >.pidfile
-
 set +x
 
 echo 'Now...'
