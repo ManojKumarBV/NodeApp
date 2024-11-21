@@ -4,9 +4,6 @@ pipeline {
         CI = 'true'
     }
     stages {
-       stage('Prepare Environment') { 
-        steps { cleanWs() 
-              echo "Workspace cleaned successfully." } }
         stage('Build') {
             steps {
                 sh 'npm install'
