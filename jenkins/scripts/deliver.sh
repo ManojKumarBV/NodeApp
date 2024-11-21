@@ -20,9 +20,20 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-npm start &
+
+# Define the IP address and port
+HOST=192.168.x.x   # Replace with your desired IP address
+PORT=4000
+
+# Run the React app with specified HOST and PORT in the background
+HOST=$HOST PORT=$PORT npm start &
+
+# Wait for 1 second to ensure the app starts
 sleep 1
+
+# Save the process ID of the background job to a .pidfile
 echo $! > .pidfile
+
 set +x
 
 echo 'Now...'
